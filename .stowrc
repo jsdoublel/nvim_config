@@ -1,0 +1,3 @@
+--dir=~/Configs/nvim_config
+--target=~/.config/nvim
+--verbose=1
