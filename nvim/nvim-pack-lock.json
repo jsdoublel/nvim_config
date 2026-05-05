@@ -1,0 +1,28 @@
+{
+  "plugins": {
+    "gitsigns.nvim": {
+      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "lackluster.nvim": {
+      "rev": "70dd682e564784893b984deb51dd5ddd263c8cc7",
+      "src": "https://github.com/slugbyte/lackluster.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "f04ab730b8f9c6bf3f54a206d0dcddfd70c52d59",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    }
+  }
+}
