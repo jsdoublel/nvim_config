@@ -4,3 +4,4 @@
 require("options")
 require("remap")
 require("diagnostics")
+require("lsp")

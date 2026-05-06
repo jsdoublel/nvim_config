@@ -41,6 +41,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- enable more colors in vim
 vim.o.termguicolors = true
 
+vim.o.winborder = "rounded"
+
 -- enable vertical bar
 vim.o.colorcolumn = "80,120"
 
