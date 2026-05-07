@@ -35,6 +35,8 @@ end)
 -- tab through buffers
 vim.keymap.set("n", "<Tab>", vim.cmd.bn)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bp)
+vim.keymap.set("n", "<leader>x", vim.cmd.bd)
 
 -- update vim pack
 vim.keymap.set("n", "<leader>up", vim.pack.update)
+vim.keymap.set("n", "<leader>m", vim.cmd.Mason)

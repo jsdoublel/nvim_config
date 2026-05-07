@@ -1,14 +1,32 @@
 vim.pack.add({
 	"https://github.com/nvim-telescope/telescope.nvim",
 	"https://github.com/nvim-lua/plenary.nvim",
-	-- 'https://github.com/nvim-tree/nvim-web-devicons'
 })
 
 local builtin = require("telescope.builtin")
+local themes = require("telescope.themes")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>fw", builtin.diagnostics, { desc = "Telescope diagnostics" })
+vim.keymap.set("n", "<leader>fgg", builtin.git_status, { desc = "Telescope git status" })
+
+vim.keymap.set("n", "<leader>f;", function() -- ; as in : but without the shift
+	builtin.command_history(themes.get_ivy({
+		previewer = false,
+	}))
+end, { desc = "Telescope search command history" })
+
+vim.keymap.set("n", "<leader>/", function()
+	builtin.current_buffer_fuzzy_find(themes.get_dropdown({
+		previewer = false,
+	}))
+end, { desc = "[/] Fuzzily search in current buffer" })
+
+vim.keymap.set("n", "<leader>s/", function()
+	builtin.live_grep({ grep_open_files = true, prompt_title = "Live Grep in Open Files" })
+end, { desc = "[S]earch [/] in Open Files" })
 
 -- lsp integration
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -27,14 +45,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "grt", builtin.lsp_type_definitions, { buffer = buf, desc = "[G]oto [T]ype Definition" })
 	end,
 })
-
-vim.keymap.set("n", "<leader>/", function()
-	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
-		previewer = false,
-	}))
-end, { desc = "[/] Fuzzily search in current buffer" })
-
-vim.keymap.set("n", "<leader>s/", function()
-	builtin.live_grep({ grep_open_files = true, prompt_title = "Live Grep in Open Files" })
-end, { desc = "[S]earch [/] in Open Files" })
