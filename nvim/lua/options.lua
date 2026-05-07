@@ -46,5 +46,5 @@ vim.o.winborder = "rounded"
 -- enable vertical bar
 vim.o.colorcolumn = "80,120"
 
--- keep curser away from top/bottom of screen when scrolling
+-- keep cursor away from top/bottom of screen when scrolling
 vim.o.scrolloff = 5

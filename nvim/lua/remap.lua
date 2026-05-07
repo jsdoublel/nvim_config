@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<leader>ls", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>ls", vim.cmd.Oil)
 
 -- Ctrl+d and Ctrl+u keep cursor centered (same for search)
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

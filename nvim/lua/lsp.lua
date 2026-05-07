@@ -19,6 +19,7 @@ blink.setup({
 			window = { border = "rounded" },
 		},
 	},
+	signature = { enabled = false },
 	keymap = {
 		["<C-p>"] = { "select_prev", "fallback_to_mappings" },
 		["<C-n>"] = { "select_next", "fallback_to_mappings" },
