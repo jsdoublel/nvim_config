@@ -68,8 +68,7 @@ for server, config in pairs(lsp_servers) do
 		settings = config,
 		-- only create the keymaps if the server attaches successfully
 		on_attach = function(_, bufnr)
-			vim.keymap.set("n", "grd", vim.lsp.buf.definition, { buffer = bufnr, desc = "vim.lsp.buf.definition()" })
-
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "vim.lsp.buf.definition()" })
 			vim.keymap.set("n", "grf", vim.lsp.buf.format, { buffer = bufnr, desc = "vim.lsp.buf.format()" })
 		end,
 	})
