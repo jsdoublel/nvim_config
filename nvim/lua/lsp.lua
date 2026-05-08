@@ -44,10 +44,6 @@ vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#444444", bg = "NONE" })
 vim.api.nvim_set_hl(0, "BlinkCmpDocSeparator", { fg = "#444444", bg = "NONE" })
 
--- Global highlight groups for floating windows
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#444444", bg = "NONE" })
-
 local lsp_servers = {
 	lua_ls = {
 		Lua = { workspace = { library = vim.api.nvim_get_runtime_file("lua", true) } },
@@ -97,6 +93,7 @@ conform.formatters_by_ft = {
 	lua = { "stylua" },
 	go = { "gofmt" },
 	python = { "black" },
+	cpp = { "clang-format" },
 }
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",

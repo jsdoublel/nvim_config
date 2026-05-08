@@ -17,12 +17,14 @@ require("nvim-web-devicons").setup({
 
 lackluster.setup({
 	tweak_syntax = {
-		comment = color.gray5,
+		-- comment = color.gray5,
 		-- string_escape = color.yellow,
 	},
 	tweak_background = {
 		normal = "none",
 		telescope = "none",
+		menu = "none",
+		popup = "none",
 	},
 	tweak_ui = {
 		disable_undercurl = true,
@@ -30,6 +32,7 @@ lackluster.setup({
 	},
 })
 vim.cmd.colorscheme("lackluster")
+
 require("lualine").setup({
 	options = {
 		theme = "lackluster",

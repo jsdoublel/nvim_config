@@ -9,4 +9,5 @@ vim.diagnostic.config({
 	jump = { float = true },
 })
 
-vim.keymap.set("n", "<leader>w", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
+vim.keymap.set("n", "<leader>w", vim.diagnostic.open_float, { desc = "Open diagnostic float on line" })
+vim.keymap.set("n", "<leader>ww", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
