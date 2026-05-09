@@ -8,8 +8,7 @@ local themes = require("telescope.themes")
 
 vim.keymap.set("n", "<leader>ff", function()
 	builtin.find_files({
-		hidden = true,
-		file_ignore_patterns = { "%.git/" },
+		find_command = { "fd", "--hidden", "--exclude", ".git" }, -- includes folders and hidden files as well
 	})
 end, { desc = "Telescope find files" })
 
@@ -17,7 +16,8 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live gr
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 vim.keymap.set("n", "<leader>fw", builtin.diagnostics, { desc = "Telescope diagnostics" })
-vim.keymap.set("n", "<leader>fgg", builtin.git_status, { desc = "Telescope git status" })
+vim.keymap.set("n", "<leader>fs", builtin.git_status, { desc = "Telescope git status" })
+vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Telescope list marks" })
 
 vim.keymap.set("n", "<leader>f;", function() -- ; as in : but without the shift
 	builtin.command_history(themes.get_ivy({
