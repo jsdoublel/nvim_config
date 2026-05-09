@@ -1,8 +1,8 @@
 -- init.lua
 -- James Willson
 
-require("options")
-require("remap")
-require("diagnostics")
-require("lsp")
-require("appearance")
+require('options')
+require('remap')
+require('diagnostics')
+require('lsp')
+require('appearance')
