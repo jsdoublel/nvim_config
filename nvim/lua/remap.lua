@@ -2,6 +2,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.keymap.set('n', '<C-S-n>', '<Nop>', { noremap = true, desc = 'Disable Ctrl+n' })
+
 vim.keymap.set('n', '<leader>ls', vim.cmd.Oil, { desc = 'Open file browser' })
 
 -- Ctrl+d and Ctrl+u keep cursor centered (same for search)

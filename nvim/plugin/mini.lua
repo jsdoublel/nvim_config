@@ -1,7 +1,5 @@
 vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
 
-require('mini.pairs').setup()
-
 local splitjoin = require('mini.splitjoin')
 splitjoin.setup({
   mappings = {
@@ -27,5 +25,15 @@ require('mini.surround').setup({
     replace = 'sr',
     suffix_last = 'l',
     suffix_next = 'n',
+  },
+  custom_surroundings = { -- helpful for markdown
+    b = {
+      input = { '%*%*().-()%*%*' },
+      output = { left = '**', right = '**' },
+    },
+    i = {
+      input = { '%*().-()%*' },
+      output = { left = '*', right = '*' },
+    },
   },
 })
