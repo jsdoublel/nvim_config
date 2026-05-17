@@ -33,8 +33,3 @@ lackluster.setup({
 })
 vim.cmd.colorscheme('lackluster')
 
-require('lualine').setup({
-  options = {
-    theme = 'lackluster',
-  },
-})
