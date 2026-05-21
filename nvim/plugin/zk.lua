@@ -7,22 +7,26 @@ require('zk').setup({
   },
 })
 
-local opts = { noremap = true, silent = false }
+vim.keymap.set('n', '<leader>zn', function()
+  local title = vim.fn.input('Title: ')
+  if string.len(title) ~= 0 then vim.cmd("ZkNew { title = '" .. title .. "' }") end
+end, { desc = 'Create new note' })
 
--- Create a new note after asking for its title.
-vim.api.nvim_set_keymap('n', '<leader>zn', "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
-
--- Open notes.
-vim.api.nvim_set_keymap('n', '<leader>zf', "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
--- Open notes associated with the selected tags.
-vim.api.nvim_set_keymap('n', '<leader>zt', '<Cmd>ZkTags<CR>', opts)
-
--- Search for the notes matching a given query.
-vim.api.nvim_set_keymap(
+vim.keymap.set(
   'n',
-  '<leader>zs',
-  "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>",
-  opts
+  '<leader>zd',
+  function() vim.cmd("ZkNew { dir = 'daily' }") end,
+  { desc = 'Create/Open daily journal' }
 )
--- Search for the notes matching the current visual selection.
-vim.api.nvim_set_keymap('v', '<leader>zs', ":'<,'>ZkMatch<CR>", opts)
+
+vim.keymap.set('n', '<leader>zf', function() vim.cmd.ZkNotes() end, { desc = 'Find note' })
+vim.keymap.set('n', '<leader>zt', function() vim.cmd.ZkTags() end, { desc = 'Search note tags' })
+
+vim.keymap.set('n', '<leader>zs', function()
+  local search = vim.fn.input('Search: ')
+  if string.len(search) ~= 0 then vim.cmd("ZkNotes { sort = { 'modified' }, match = { '" .. search .. "' } }") end
+end, { desc = 'Search notes (normal mode)' })
+
+vim.keymap.set('v', '<leader>zs', ":'<,'>ZkMatch<CR>", { desc = 'Search notes (visual mode)' })
+vim.keymap.set('n', '<leader>zb', function() vim.cmd.ZkBacklinks() end, { desc = 'Show backlinks to current buffer' })
+vim.keymap.set('n', '<leader>zl', function() vim.cmd.ZkLinks() end, { desc = 'Show backlinks to current buffer' })
