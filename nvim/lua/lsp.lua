@@ -70,6 +70,17 @@ for server, config in pairs(lsp_servers) do
   })
 end
 
+-- Attach treesitter
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args)
+    local buf, filetype = args.buf, args.match
+    local language = vim.treesitter.language.get_lang(filetype)
+    if not language then return end
+    if not vim.treesitter.language.add(language) then return end
+    vim.treesitter.start(buf, language)
+  end,
+})
+
 -- Set up linting
 local lint = require('lint')
 lint.linters_by_ft = {
