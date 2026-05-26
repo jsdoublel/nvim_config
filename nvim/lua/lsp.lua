@@ -23,7 +23,7 @@ blink.setup({
   keymap = {
     ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
     ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
-    ['<CR>'] = { 'select_and_accept', 'fallback' },
+    ['<C-y>'] = { 'select_and_accept', 'fallback' },
     ['<C-e>'] = { 'cancel', 'fallback' },
     ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
     ['<Tab>'] = { 'snippet_forward', 'fallback' },

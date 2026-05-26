@@ -33,3 +33,14 @@ lackluster.setup({
 })
 vim.cmd.colorscheme('lackluster')
 
+-- set background of "K" lsp menu to be transparent
+local transparent_groups = {
+  'RenderMarkdownCode',
+  'RenderMarkdownCodeInline',
+  'RenderMarkdownCodeInfo',
+  'RenderMarkdownCodeBorder',
+}
+
+for _, group in ipairs(transparent_groups) do
+  vim.api.nvim_set_hl(0, group, { bg = 'NONE' })
+end
