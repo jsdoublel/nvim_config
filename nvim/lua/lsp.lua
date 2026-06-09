@@ -7,6 +7,7 @@ vim.pack.add({
   'https://github.com/saghen/blink.cmp',
   'https://github.com/mfussenegger/nvim-lint',
   'https://github.com/stevearc/conform.nvim',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
 })
 
 local blink = require('blink.cmp')
@@ -71,6 +72,7 @@ for server, config in pairs(lsp_servers) do
 end
 
 -- Attach treesitter
+-- nvim-treesitter is still needed for running :TSInstall all and :TSUpdate
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(args)
     local buf, filetype = args.buf, args.match

@@ -1,8 +1,10 @@
--- leader key
+-- Leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set('n', '<C-S-n>', '<Nop>', { noremap = true, desc = 'Disable Ctrl+n' })
+-- Disable some keybinds
+vim.keymap.set('n', '<C-S-n>', '<Nop>', { noremap = true, desc = 'Disable Ctrl+Shift+n' })
+vim.keymap.set('n', '<C-S-z>', '<Nop>', { noremap = true, desc = 'Disable Ctrl+Shift+z' })
 
 vim.keymap.set('n', '<leader>ls', vim.cmd.Oil, { desc = 'Open file browser' })
 
@@ -17,20 +19,20 @@ vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Yank to global clipboard' })
 vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank to global clipboard' })
 vim.keymap.set('n', '<leader>Y', '"+Y', { desc = 'Yank to global clipboard' })
 
--- insert blank line
+-- Insert blank line
 vim.keymap.set('n', '<leader>o', 'o<Esc>k')
 vim.keymap.set('n', '<leader>O', 'O<Esc>j')
 
--- replace remap
+-- Replace remap
 vim.keymap.set('n', '<leader>s', [[:%s/]], { desc = 'Begin search and replace' })
 
--- spell check toggle
+-- Spell check toggle
 vim.keymap.set('n', '<leader>sp', function() vim.o.spell = not vim.o.spell end, { desc = 'Toggle spell checking' })
 
--- toggle wordwrap
+-- Toggle wordwrap
 vim.keymap.set('n', '<leader>wr', function() vim.o.wrap = not vim.o.wrap end, { desc = 'Toggle word wrap' })
 
--- tab through buffers
+-- Tab through buffers
 vim.keymap.set('n', '<Tab>', vim.cmd.bn, { desc = 'Advance to next buffer' })
 vim.keymap.set('n', '<S-Tab>', vim.cmd.bp, { desc = 'Return to previous buffer' })
 vim.keymap.set('n', '<leader>x', vim.cmd.bd, { desc = 'Delete current buffer' })
@@ -41,6 +43,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>')
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
 
--- update vim pack
+-- Update vim pack
 vim.keymap.set('n', '<leader>up', vim.pack.update, { desc = 'Update plugins' })
 vim.keymap.set('n', '<leader>m', vim.cmd.Mason, { desc = 'Open Mason' })
